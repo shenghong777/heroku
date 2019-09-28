@@ -47,8 +47,22 @@ app.post('/charge', (req, res) => {
     .then(charge => res.render ('success'));
  });
 
-
-
+//invoice
+/*stripe.invoiceItems.create({
+    customer: 'cus_4fdAW5ftNQow1a',
+    amount: 2500,
+    currency: 'myr',
+    description: 'One-time setup fee',
+  }, function(err, invoiceItem) {
+    // asynchronously called
+    stripe.invoices.create({
+      customer: 'cus_4fdAW5ftNQow1a',
+      auto_advance: true, // auto-finalize this draft after ~1 hour
+    }, function(err, invoice) {
+      // asynchronously called
+    });
+  });
+*/
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
